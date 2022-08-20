@@ -1,0 +1,70 @@
+/* _______________ GLOBAL STYLES _______________ */
+.page {
+  font-size: 10px;
+  line-height: 1.5;
+  background-image: $main-bg;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  display: grid;
+  color: $main-color;
+  font-size: 1.5rem;
+  background-image: $main-bg;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-template-rows:  1fr min-content;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main {
+  margin-top: 80px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 0 20px;
+}
+.container-fluid {
+  width: 100vw;
+  background-color: #bd98a2;
+  padding: 20px;
+}
+
+.container--inner {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #79a0c869;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3a427675;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3a4276;
+}

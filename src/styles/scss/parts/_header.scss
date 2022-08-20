@@ -1,0 +1,174 @@
+/* _______________ HEADER _______________ */
+.header {
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 0 5px 0 $blue;
+  color: $header-color;
+  background-color: $header-bg;
+  font-size: 2rem;
+  font-weight: normal;
+  z-index: 11;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    padding: 25px 0;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    column-gap: 79px;
+    z-index: 12;
+    overflow-y: auto;
+  }
+
+  &__menu-item {
+    padding: 35px 0;
+
+    &:hover {
+      color: $pink;
+    }
+  }
+
+  &__menu-overlay {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0.8;
+    backdrop-filter: blur(2px);
+  }
+
+  &__btn-area {
+    padding: 10px;
+    margin-right: -10px;
+    z-index: 12;
+    display: none;
+    cursor: pointer;
+  }
+
+  &__btn {
+    width: 50px;
+    height: 24px;
+    position: relative;
+    transition: all .3s;
+  }
+
+  &__btn > span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: $header-color;
+    transition: all .3s;
+  }
+
+  &__btn > span:nth-child(2) {
+    transform: translateY(-50%);
+    top: 50%;
+
+  }
+
+  &__btn > span:nth-child(3) {
+    transform: translateY(-100%);
+    top: 100%;
+  }
+
+  &__btn.show > span:nth-child(2) {
+    display: none;
+  }
+
+  &__btn.show > span:nth-child(1) {
+    transform: translateY(600%) rotate(45deg);
+  }
+
+  &__btn.show > span:nth-child(3) {
+    transform: translateY(-600%) rotate(-45deg);
+  }
+}
+
+@media (max-width: 968px) {
+  .header.show {
+    background-color: $header-bg;
+    transition: all 0.3s;
+  }
+  .header {
+    &__logo {
+      padding: 20px 0;
+    }
+    &__menu {
+      flex-direction: column;
+      position: absolute;
+      width: 60%;
+      height: 100vh;
+      gap: 0;
+      background-color: $header-bg;
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: all 0.3s;
+      transform: translateX(-100%);
+    }
+
+    &__menu.show {
+      transform: translateX(0%);
+      overflow: auto;
+    }
+
+    &__menu-overlay.show {
+      display: block;
+    }
+
+    &__menu-item {
+      padding: 25px 0;
+      text-align: center;
+      position: relative;
+      text-transform: uppercase;
+    }
+    
+    &__btn-area {
+      display: block;
+    }
+
+    &__btn {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .header {
+    &__logo {
+      margin-right: 0;
+    }
+  }
+}
+
+@media(max-width: 650px) {
+  .header {
+    height: 80px;
+    &__menu.show {
+      top: 0;
+    }
+    &__container {
+      height: 80px;
+    }
+    &__btn {
+      margin-right: 0;
+    }
+  }
+}
